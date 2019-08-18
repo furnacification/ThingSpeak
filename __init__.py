@@ -13,9 +13,9 @@ thingspeak_api_write = None
 drop_first = None
 
 def log(s):
-    if DEBUG:
-        s = "IOT: " + s
-        cbpi.app.logger.info(s)
+    #if DEBUG:
+    s = "IOT: " + s
+    cbpi.app.logger.info(s)
 
 def httpCon(url, path='', data_load='', meth='GET'):
     log("%s to URL %s - %s - %s" % (meth, url, path, data_load))
@@ -185,7 +185,7 @@ def UbidotsUpdate(data):
     result = httpJSON(url, path, param, data)
 
 @cbpi.backgroundtask(key="thingspeak_task", interval=60)
-def thingspeak_background_task(api):
+def thingspeak_background_task():
     log("IOT background task")
     global drop_first
     if drop_first is None:
@@ -202,6 +202,6 @@ def thingspeak_background_task(api):
     dataT += "}"
     log("Thing")
     ThingspeakUpdate(dataT)
-    log("Ubidots")
-    UbidotsUpdate(dataU)
+#    log("Ubidots")
+#    UbidotsUpdate(dataU)
 
