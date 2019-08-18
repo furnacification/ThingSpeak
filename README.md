@@ -1,4 +1,6 @@
-# ThingSpeak and Ubidots
+# ThingSpeak 
+
+## I removed Udibots 
 
 ## Introduction
 The ThingSpeak Plugin allows CraftBeerPi 3.0 to send sensor data to ThingSpeak.com and Ubidots.com  
